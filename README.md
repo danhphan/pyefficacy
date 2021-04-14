@@ -1,24 +1,15 @@
-# Project name here
-> Summary description here.
+# Effective and clean Python
+> Write python clean code with efficacy
 
 
 This file will become your README and also the index of your documentation.
 
+### Environment: Fastai2 and nbdev
+
 ## Install
 
-`pip install your_project_name`
+`pip install pyefficacy`
 
 ## How to use
 
-Fill me in please! Don't forget code examples:
-
-```python
-1+1
-```
-
-
-
-
-    2
-
-
+Update later.

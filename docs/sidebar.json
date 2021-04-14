@@ -1,7 +1,6 @@
 {
   "pyefficacy": {
     "Overview": "/",
-    "module name here": "core.html",
     "String vs. Unicode": "str_vs_unicode.html"
   }
 }
