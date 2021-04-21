@@ -12,6 +12,12 @@ entries:
     - output: web,pdf
       title: String vs. Unicode
       url: str_vs_unicode.html
+    - output: web,pdf
+      title: lists and dicts
+      url: lists_and_dicts.html
+    - output: web,pdf
+      title: Title
+      url: hasing_a_list.html
     output: web
     title: pyefficacy
   output: web

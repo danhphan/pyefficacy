@@ -1,6 +1,8 @@
 {
   "pyefficacy": {
     "Overview": "/",
-    "String vs. Unicode": "str_vs_unicode.html"
+    "String vs. Unicode": "str_vs_unicode.html",
+    "lists and dicts": "lists_and_dicts.html",
+    "Title": "hasing_a_list.html"
   }
 }
