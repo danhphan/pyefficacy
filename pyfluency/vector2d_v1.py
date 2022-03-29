@@ -21,8 +21,14 @@ class Vector2d:
     def __str__(self) -> str:
         return str(tuple(self))
 
-    def __bytes__(self):
+    def __bytes__(self):    
         return (bytes([ord(self.typecode)]) + bytes(array(self.typecode, self)))
+
+    @classmethod
+    def frombytes(cls, octets):
+        typecode = chr(octets[0])
+        memv = memoryview(octets[1:]).cast(typecode)
+        return cls(*memv)
 
     def __eq__(self, other) -> bool:
         if (self.x == other.x) and (self.y == other.y):
@@ -36,8 +42,10 @@ class Vector2d:
     def __bool__(self):
         return bool(abs(self))
 
-    @classmethod
-    def frombytes(cls, octets):
-        typecode = chr(octets[0])
-        memv = memoryview(octets[1:]).cast(typecode)
-        return cls(*memv)
+    def __format__(self, format_spec='') -> str:
+        components = (format(c, format_spec) for c in self)
+        return '({}, {})'.format(*components)
+
+    
+
+    
