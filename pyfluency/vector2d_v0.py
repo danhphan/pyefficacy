@@ -14,7 +14,7 @@ class Vector2d:
 
     def __repr__(self) -> str:
         class_name = type(self).__name__
-        return f"{class_name}({self})"
+        return '{}({!r}, {!r})'.format(class_name, *self)
 
     
     def __str__(self) -> str:
@@ -22,6 +22,12 @@ class Vector2d:
 
     def __bytes__(self):
         return (bytes([ord(self.typecode)]) + bytes(array(self.typecode, self)))
+
+    def __eq__(self, other) -> bool:
+        if (self.x == other.x) and (self.y == other.y):
+            return True
+        else:
+            return False
 
     def __abs__(self):
         return math.hypot(self.x, self.y)
