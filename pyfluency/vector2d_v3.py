@@ -5,13 +5,25 @@ class Vector2d:
     typecode = 'd'
     
     def __init__(self,x , y) -> None:
-        self.x = float(x)
-        self.y = float(y)
+        self.__x = float(x)
+        self.__y = float(y)
+
+    @property
+    def x(self):
+        return self.__x
+
+    
+    @property
+    def y(self):
+        return self.__y
 
 
     def __iter__(self):
         return (i for i in (self.x, self.y))
 
+
+    def __hash__(self) -> int:
+        return hash(self.x) ^ hash(self.y)
 
     def __repr__(self) -> str:
         class_name = type(self).__name__
