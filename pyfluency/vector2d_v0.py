@@ -2,7 +2,8 @@ from array import array
 import math
 
 class Vector2d:
-
+    typecode = 'd'
+    
     def __init__(self,x , y) -> None:
         self.x = float(x)
         self.y = float(y)
