@@ -75,7 +75,7 @@ class Vector:
         return cls(*memv)
 
     def __eq__(self, other) -> bool:
-        return tuple(self) == tuple(other)
+        return len(self) == len(other) and all(a == b for a, b in zip(self, other))
 
     def __hash__(self):
         hashes = map(hash, self._components)
