@@ -25,6 +25,12 @@ class Vector:
     def __bytes__(self):    
         return (bytes([ord(self.typecode)]) + bytes(array(self.typecode, self)))
 
+    def __getitem__(self, index):
+        return self._components[index]
+
+    def __len__(self):
+        return len(self._components)
+
     @classmethod
     def frombytes(cls, octets):
         typecode = chr(octets[0])
