@@ -78,7 +78,7 @@ class Vector:
         return tuple(self) == tuple(other)
 
     def __hash__(self):
-        hashes = (hash(x) for x in self._components)
+        hashes = map(hash, self._components)
         return functools.reduce(operator.xor, hashes)
 
     def __abs__(self):
