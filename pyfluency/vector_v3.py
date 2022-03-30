@@ -60,6 +60,8 @@ class Vector:
                 error = ""
             if error:
                 msg = error.format(cls_name=cls.__name__, attr_name=name)
+                raise AttributeError(msg)
+                
         super().__setattr__(name, value)
 
 
