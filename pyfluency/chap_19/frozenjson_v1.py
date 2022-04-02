@@ -1,11 +1,16 @@
+from ast import keyword
 from collections import abc
-from os import O_BINARY
-
-
+from keyword import iskeyword
 class FrozenJSON:
 
     def __init__(self, mapping):
+        
         self.__data = dict(mapping)
+
+        for key, value in mapping.items():
+            if iskeyword(key):
+                key += "_"
+            self.__data[key] = value        
 
     def __getattr__(self, name):
         if hasattr(self.__data, name):
