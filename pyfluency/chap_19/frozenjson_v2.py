@@ -26,5 +26,5 @@ class FrozenJSON:
         if hasattr(self.__data, name):
             return getattr(self.__data, name)
         else:
-            return FrozenJSON.build(self.__data[name])
+            return FrozenJSON(self.__data[name])
          
