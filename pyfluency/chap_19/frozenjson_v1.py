@@ -1,4 +1,5 @@
 from collections import abc
+from os import O_BINARY
 
 
 class FrozenJSON:
@@ -12,4 +13,12 @@ class FrozenJSON:
         else:
             return FrozenJSON.build(self.__data[name])
 
-    
+    @classmethod
+    def build(cls, obj):
+        if isinstance(obj, abc.Mapping):
+            return cls(obj)
+        elif isinstance(obj, abc.MutableSequence):
+            return [cls.build(item) for item in obj]
+        else:
+            return obj
+          
