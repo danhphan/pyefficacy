@@ -1,4 +1,8 @@
 
 class LineItem:
     def __init__(self, description, weight, price):
-        pass
+        self.description = description
+        self.weight = weight
+        self.price = price
+
+    
