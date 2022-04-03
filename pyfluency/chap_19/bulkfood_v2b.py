@@ -8,13 +8,15 @@ class LineItem:
     def subtotal(self):
         return self.weight * self.price
     
-    @property
-    def weight(self):
+    
+    def get_weight(self):
         return self.__weight
 
-    @weight.setter
-    def weight(self, value):
+    
+    def set_weight(self, value):
         if value > 0:
             self.__weight = value
         else:
             raise ValueError('value must be > 0')
+
+    weight = property(get_weight, set_weight)
