@@ -2,7 +2,6 @@ def quantity(storage_name):
     def get_weight(instance):
         return instance.__dict__[storage_name]
 
-    
     def set_weight(instance, value):
         if value > 0:
             instance.__dict__[storage_name] = value
@@ -10,8 +9,7 @@ def quantity(storage_name):
             raise ValueError('value must be > 0')
 
     return property(get_weight, set_weight)
-
-
+    
 class LineItem:
 
     weight = quantity("weight")
@@ -24,3 +22,4 @@ class LineItem:
 
     def subtotal(self):
         return self.weight * self.price
+
