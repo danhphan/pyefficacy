@@ -11,6 +11,7 @@ class Quantity:
         cls.__counter += 1
 
     def __get__(self, instance, owner):
+        print("Run __get__", instance, owner)
         return getattr(instance, self.storage_name)
 
     def __set__(self, instance, value):
