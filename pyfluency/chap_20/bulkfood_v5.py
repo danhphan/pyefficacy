@@ -1,30 +1,9 @@
-
-class Quantity:
-
-    __counter = 0
-
-    def __init__(self):
-        cls = self.__class__
-        prefix = cls.__name__
-        index = cls.__counter
-        self.storage_name = '_{}#{}'.format(prefix, index)
-        cls.__counter += 1
-
-    def __get__(self, instance, owner):
-        print("Run __get__", instance, owner)
-        return getattr(instance, self.storage_name)
-
-    def __set__(self, instance, value):
-        if value > 0:
-            setattr(instance, self.storage_name, value)
-        else:
-            raise ValueError("Value need > 0")
-
+import model_v5 as model
 
 class LineItem:
-
-    weight = Quantity()
-    price = Quantity()
+    description = model.NonBlank()
+    weight = model.Quantity()
+    price = model.Quantity()    
 
     def __init__(self, description, weight, price):
         self.description = description
