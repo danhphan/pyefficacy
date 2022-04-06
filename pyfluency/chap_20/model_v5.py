@@ -10,7 +10,7 @@ class AutoStorage:
 
 
     def __get__(self, instance, owner):
-        if isinstance is None:
+        if instance is None:
             return self
         else:
             return getattr(instance, self.storage_name)
