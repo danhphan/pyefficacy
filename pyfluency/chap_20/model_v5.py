@@ -5,7 +5,7 @@ class AutoStorage:
 
     def __init__(self):
         cls = self.__class__
-        self.storage_name = '{}#{}'.format(cls, cls.__counter)
+        self.storage_name = '{}#{}'.format(cls.__name__, cls.__counter)
         cls.__counter += 1
 
 
@@ -13,10 +13,10 @@ class AutoStorage:
         if isinstance is None:
             return self
         else:
-            return instance.__dict__[self.storage_name]
+            return getattr(instance, self.storage_name)
 
     def __set__(self, instance, value):
-        pass
+        setattr(instance, self.storage_name, value)
 
 class Validated(AutoStorage):
     def __set__(self, instance, value):
