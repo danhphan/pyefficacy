@@ -29,8 +29,11 @@ class Validated(abc.ABC, AutoStorage):
 
 
 class Quantity(Validated):
+    """a number greater than zero"""
     def validate(self, instance, value):
-        pass
+        if value <= 0:
+            raise ValueError("value must be > 0")
+        return value
 
 
 class NonBlank(Validated):
