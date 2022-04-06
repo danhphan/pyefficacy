@@ -39,4 +39,9 @@ class OverridingNoGet:
     def __set__(self, instance, value):
         print_args('set', self, instance, value)
 
-    
+
+class NonOverriding:
+    """a.k.a non-data or shadowable descriptor"""    
+    def __get__(self, instance, owner):
+        print_args('get', self, instance, owner)
+
