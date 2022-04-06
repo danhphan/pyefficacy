@@ -45,3 +45,11 @@ class NonOverriding:
     def __get__(self, instance, owner):
         print_args('get', self, instance, owner)
 
+
+class Managed:
+    over = Overriding()
+    over_no_get = OverridingNoGet()
+    non_over = NonOverriding()
+
+    def spam(self):
+        print('-> Managed.spam({})'.format(display(self)))
