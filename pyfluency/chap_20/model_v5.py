@@ -37,5 +37,9 @@ class Quantity(Validated):
 
 
 class NonBlank(Validated):
+    """a string with at least one non-space character"""
     def validate(self, instance, value):
-        pass
+        value = value.strip()
+        if len(value) == 0:
+            raise ValueError('value cannot be blank')
+        return value
