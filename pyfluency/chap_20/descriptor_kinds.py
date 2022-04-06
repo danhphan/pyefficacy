@@ -32,3 +32,11 @@ class Overriding:
 
     def __set__(self, instance, value):
         print_args('set', self, instance, value)
+
+
+class OverridingNoGet:
+    """An overriding description without ``__get__``"""
+    def __set__(self, instance, value):
+        print_args('set', self, instance, value)
+
+    
