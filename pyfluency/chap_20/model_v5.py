@@ -18,12 +18,14 @@ class AutoStorage:
     def __set__(self, instance, value):
         setattr(instance, self.storage_name, value)
 
-class Validated(AutoStorage):
+class Validated(abc.ABC, AutoStorage):
     def __set__(self, instance, value):
-        self.validate(instance, value)
+        value = self.validate(instance, value)
+        super().__set__(instance, value)
 
+    @abc.abstractmethod
     def validate(self, instance, value):
-        pass
+        """return validated value or raise ValueError"""
 
 
 class Quantity(Validated):
