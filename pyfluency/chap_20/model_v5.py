@@ -29,3 +29,8 @@ class Validated(AutoStorage):
 class Quantity(Validated):
     def validate(self, instance, value):
         pass
+
+
+class NonBlank(Validated):
+    def validate(self, instance, value):
+        pass
